@@ -10,14 +10,13 @@ void welcome(){
   printf(" _    _      _                          \n"
          "| |  | |    | |\n"
          "| |  | | ___| | ___ ___  _ __ ___   ___\n"
-         "| |/\\| |/ _ | |/ __/ _ \\| '_ ` _ \\ / _ \n"
+         "| |/\\| |/ _ | |/ __/ _ \\| '_ ` _ \\ / _ \\\n"
          "\\  /\\  |  __| | (_| (_) | | | | | |  __/\n"
          " \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___|\n\n");
 
-  printf("Implementacao do metodo MPI_Alltoallv com 3 metodologias distintas:\n");
+  printf("Implementacao do metodo MPI_Alltoallv com MPI:\n");
   printf("  1) metodo original         [process]\n");
   printf("  2) local shared memory     (process)\n");
-  printf("  1) openmp                  |process|\n\n");
   printf("---------------------------------------------------------------------\n\n");
 }
 
@@ -173,7 +172,13 @@ void main(int argc, char* argv[]){
     printf("\n-------------------------\n");
   }
 
-  /* OPENMP */
+
+  free(send_countbuf);
+  free(send_offsetbuf);
+  free(rec_countbuf);
+  free(rec_offsetbuf);
+  free(sendbuf);
+  free(recbuf);
 
   MPI_Finalize();
 
